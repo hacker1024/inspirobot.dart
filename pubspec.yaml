@@ -1,0 +1,17 @@
+name: inspirobot
+description: An InspiroBot API client.
+version: 1.0.0
+homepage: https://github.com/hacker1024/inspirobot.dart
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+
+dependencies:
+  http: ^0.13.0
+  json_annotation: ^4.0.0
+  collection: ^1.15.0
+
+dev_dependencies:
+  lint: ^1.5.3
+  build_runner: ^1.11.5
+  json_serializable: ^4.0.2
