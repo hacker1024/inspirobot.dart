@@ -26,16 +26,20 @@ class InspiroBot {
         queryParameters: parameters,
       ));
 
-  /// Generates an InspiroBot image, completing with the image URL.
+  /// Generates an InspiroBot image, completing with the image URL as a
+  /// [String].
   ///
   /// May throw a [SocketException] when network connectivity issues occur.
-  Future<Uri> generate({bool christmas = false}) async {
-    final urlString = await _makeApiRequest({
-      'generate': 'true',
-      if (christmas) 'season': 'xmas',
-    });
-    return Uri.parse(urlString);
-  }
+  Future<String> generateString({bool christmas = false}) => _makeApiRequest({
+        'generate': 'true',
+        if (christmas) 'season': 'xmas',
+      });
+
+  /// Generates an InspiroBot image, completing with the image URL as a [Uri].
+  ///
+  /// May throw a [SocketException] when network connectivity issues occur.
+  Future<Uri> generate({bool christmas = false}) async =>
+      Uri.parse(await generateString(christmas: christmas));
 
   /// Starts a Mindfulness Mode session.
   ///
